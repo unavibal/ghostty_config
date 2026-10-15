@@ -1,6 +1,24 @@
+# -----------------------------------------------------------
+# Default prog
+# -----------------------------------------------------------
 command = /opt/homebrew/bin/fish
 env = XDG_CONFIG_HOME=/Users/diego/.config
-theme = gruvbox-light-soft-contrast
+
+# -----------------------------------------------------------
+# General
+# -----------------------------------------------------------
+# Option composes special chars (like WezTerm's send_composed_key_when_*_alt_is_pressed = true)
+macos-option-as-alt = false
+window-show-tab-bar = never
+working-directory = home
+# WezTerm used 0.5cell; at FiraCode 18pt a cell is ~11pt wide, ~24pt tall
+window-padding-x = 5
+window-padding-y = 12
+
+# -----------------------------------------------------------
+# Appearance
+# -----------------------------------------------------------
+theme = gruvbox-light-soft-base16
 font-family = FiraCode Nerd Font
 font-size = 18
 font-feature = zero
@@ -8,7 +26,19 @@ font-feature = ss01
 font-feature = ss04
 font-feature = ss05
 background-opacity = 0.98
-window-padding-x = 8
-window-padding-y = 8
-window-show-tab-bar = never
-working-directory = home
+
+# -----------------------------------------------------------
+# Key Bindings
+# -----------------------------------------------------------
+# Tab changing through cmd - arrow combo (overrides Ghostty's default home/end)
+keybind = cmd+arrow_right=next_tab
+keybind = cmd+arrow_left=previous_tab
+keybind = cmd+shift+n=goto_window:next
+# Overrides Ghostty's command palette (cmd+shift+p); palette moved below
+keybind = cmd+shift+p=goto_window:previous
+keybind = cmd+shift+k=toggle_command_palette
+
+# -----------------------------------------------------------
+# Bell: no sound (Ghostty default is already no-audio)
+# -----------------------------------------------------------
+bell-features = no-system,no-audio,attention,title,no-border
